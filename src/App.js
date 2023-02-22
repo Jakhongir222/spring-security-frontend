@@ -1,23 +1,28 @@
-import logo from './logo.svg';
 import './App.css';
+import {
+  BrowserRouter as Router,
+  Routes,
+  Route,
+} from 'react-router-dom';
+import LoginForm from './login/LoginForm';
+import NewUserForm from './login/NewUserForm';
+import Cart from './checkout/Cart';
+import NavBar from './Navbar';
+import Products from './products/Products';
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <h1>Welcome to amazon</h1>
+      <Router>
+        <NavBar/>
+        <Routes>
+        <Route exact path='/create-new-user' element={< NewUserForm/>}></Route>
+        <Route exact path='/login' element={< LoginForm/>}></Route>
+        <Route exact path='/cart' element={< Cart/>}></Route>
+        <Route exact path='/' element={< Cart/>}></Route>
+        </Routes>
+      </Router>
     </div>
   );
 }
