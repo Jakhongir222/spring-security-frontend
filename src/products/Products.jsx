@@ -7,9 +7,17 @@ function Products() {
   const [products, setProducts] = useState([]);
   const [error, setError] = useState(null);
   const [cart, setCart] = useState([]);
+  const [loading, setLoading] = useState(false);
 
   useEffect(() => {
     const token = localStorage.getItem('token');
+
+    if (!token) {
+      setError('No token found in local storage.');
+      return;
+    }
+
+    setLoading(true);
 
     axios.get('http://localhost:8080/products', {
       headers: {
@@ -22,6 +30,9 @@ function Products() {
     .catch(error => {
       console.error(error);
       setError(error.message);
+    })
+    .finally(() => {
+      setLoading(false);
     });
   }, []);
 
@@ -37,11 +48,18 @@ function Products() {
     setCart(updatedCart);
   };
 
+  if (loading) {
+    return <p>Loading products...</p>;
+  }
+
+  if (error) {
+    return <p>Error: {error}</p>;
+  }
+
   return (
     <>
-      {error && <p>{error}</p>}
       <ProductList products={products} addToCart={addToCart} />
-      <Cart products={cart} removeFromCart={removeFromCart} />
+      <Cart cartProducts={cart} removeFromCart={removeFromCart} />
     </>
   );
 }

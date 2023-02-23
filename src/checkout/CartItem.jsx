@@ -1,16 +1,17 @@
 import CartItem from './CartItem.jsx';
 
-let sumOfItems = 0;
+function Cart({ cart, removeFromCart }) {
+  let sumOfItems = 0;
 
-function Cart({ cartProducts, removeFromCart }) {
-  if (!cartProducts || cartProducts.length === 0) {
+  if (!cart || cart.length === 0) {
     return <h3>No items in cart, why not add some?</h3>;
   }
 
   return (
     <div>
-      {cartProducts.map((p) => {
+      {cart.map((p) => {
         sumOfItems += p.price * p.amount;
+
         return (
           <CartItem
             key={p.id}
@@ -23,5 +24,5 @@ function Cart({ cartProducts, removeFromCart }) {
     </div>
   );
 }
-
 export default Cart;
+

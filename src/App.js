@@ -20,7 +20,7 @@ function App() {
         <Route exact path='/create-new-user' element={< NewUserForm/>}></Route>
         <Route exact path='/login' element={< LoginForm/>}></Route>
         <Route exact path='/cart' element={< Cart/>}></Route>
-        <Route exact path='/' element={< Cart/>}></Route>
+        <Route exact path='/' element={< Products/>}></Route>
         </Routes>
       </Router>
     </div>
