@@ -1,7 +1,9 @@
 import { Link } from 'react-router-dom';
 import './Navbar.css';
 
-function Navbar({ cartCount }) {
+function Navbar({ cart }) {
+  const cartCount = cart ? cart.reduce((acc, item) => acc + item.amount, 0) : 0;
+
   return (
     <nav className="navbar">
       <Link to="/" className="nav_button">
@@ -14,10 +16,11 @@ function Navbar({ cartCount }) {
         Create new user
       </Link>
       <Link to="/cart" className="nav_button">
-        Go to cart ({cartCount})
+        Go to cart {cartCount}
       </Link>
     </nav>
   );
 }
+
 
 export default Navbar;

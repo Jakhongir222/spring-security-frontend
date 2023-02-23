@@ -1,5 +1,4 @@
-import CartItem from './CartItem.jsx';
-
+import CartItem from "./CartItem"
 function Cart({ cart, removeFromCart }) {
   let sumOfItems = 0;
 
@@ -26,5 +25,3 @@ function Cart({ cart, removeFromCart }) {
 }
 
 export default Cart;
-
-

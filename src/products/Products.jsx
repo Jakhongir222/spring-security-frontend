@@ -39,7 +39,8 @@ function Products() {
   const addToCart = (productId) => {
     const product = products.find(p => p.id === productId);
     if (product) {
-      setCart([...cart, product]);
+      setCart([...cart, { ...product, amount: 1 }]);
+      console.log(productId);
     }
   };
 
@@ -59,7 +60,7 @@ function Products() {
   return (
     <>
       <ProductList products={products} addToCart={addToCart} />
-      <Cart cartProducts={cart} removeFromCart={removeFromCart} />
+      <Cart cart={cart} removeFromCart={removeFromCart} />
     </>
   );
 }

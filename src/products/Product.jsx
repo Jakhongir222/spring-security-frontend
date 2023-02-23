@@ -7,6 +7,7 @@ function Product({product, addToCart}) {
           {product.title}
         </h2>
         <h3>{product.price} €</h3>
+        <h3>{product.id} €</h3>
         <button onClick={() => addToCart(product.id)}>Add to Cart</button>
       </section>
     </article>
