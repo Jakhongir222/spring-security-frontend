@@ -56,7 +56,7 @@ function Products() {
   }
 
   if (error) {
-    return <p>Error: {error}</p>;
+    return <p>Please login in order to shop </p>;
   }
 
   return (

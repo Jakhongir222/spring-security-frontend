@@ -10,12 +10,14 @@ import NewUserForm from './login/NewUserForm';
 import Cart from './checkout/Cart';
 import NavBar from './Navbar';
 import Products from './products/Products';
+import logo from './logo.png';
+
 
 function App() {
   const [cartItems, setCartItems] = useState([]);
   return (
     <div className="App">
-      <h1>Welcome to amazon</h1>
+    <img className='logo' src={logo} alt="Amazon Logo" />
       <Router>
         <NavBar/>
         <Routes>
