@@ -1,7 +1,9 @@
 import React from 'react';
 import Product from './Product';
+import './Products.css';
 
-function ProductList({products, addToCart}) {
+
+function ProductList({ products, addToCart }) {
   return (
     <div className="products-container">
       {products.map((product) => (

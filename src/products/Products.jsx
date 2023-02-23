@@ -2,6 +2,8 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import ProductList from './ProductList';
 import Cart from '../checkout/Cart';
+import './Products.css';
+
 
 function Products() {
   const [products, setProducts] = useState([]);

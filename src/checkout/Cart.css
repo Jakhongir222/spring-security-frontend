@@ -1,63 +1,86 @@
-body {
-    font-family: Arial, sans-serif;
+/* CartItem component styles */
+.cart-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px;
   }
   
-  .cart_item {
-    border: 2px solid black;
-    display: flex;
-    width: 90%;
-    max-width: 800px;
-    margin: 20px auto;
-    padding: 10px;
-    box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.2);
+  .cart-item h4 {
+  font-size: 18px;
+  margin: 0;
   }
   
-  .cart_item img {
-    width: 150px;
-    height: 150px;
-    margin: auto;
-    object-fit: cover;
-    object-position: center;
+  .cart-item p {
+  font-size: 16px;
+  margin: 0;
   }
   
-  .text_section {
-    display: flex;
-    flex-direction: column;
-    margin: auto;
-    margin-left: 20px;
+  
+  .cart-item button {
+  font-size: 14px;
+  padding: 5px 10px;
+  background-color: #e74c3c;
+  color: white;
+  border: none;
+  border-radius: 3px;
+  cursor: pointer;
+  }
+ 
+  
+  .cart-item button:hover {
+  background-color: #c0392b;
   }
   
-  .text_section h2 {
-    font-size: 24px;
-    font-weight: bold;
-    margin: 0;
+  /* Cart component styles */
+  .cart {
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: 300px;
+  height: 500px;
+  overflow-y: scroll;
+  border: 1px solid #ccc;
+  padding: 10px;
+  margin-bottom: 20px;
+  margin-top: 80px;
+  background-color: #c5dde3;
   }
   
-  .text_section h3 {
-    font-size: 18px;
-    margin: 5px 0;
+  .cart h3 {
+  font-size: 20px;
+  margin-top: 0;
   }
   
-  .cart_item button {
-    width: 150px;
-    height: 50px;
-    font-size: 16px;
-    margin: auto 0 auto auto;
+  /* CartPage component styles */
+  .cart-page {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+  }
+  
+  .cart-page h1 {
+  font-size: 32px;
+  margin-bottom: 20px;
+  }
+
+  button.order-btn {
+    background-color: #2ecc71;
     border: none;
-    border-radius: 5px;
-    background-color: #dc3545;
-    color: #fff;
+    border-radius: 3px;
+    color: white;
     cursor: pointer;
-    transition: background-color 0.2s, color 0.2s;
+    font-size: 16px;
+    font-weight: bold;
+    padding: 10px 20px;
+    text-transform: uppercase;
+    transition: background-color 0.3s ease;
   }
   
-  .cart_item button:hover {
-    background-color: #c82333;
+  button.order-btn:hover {
+    background-color: #27ae60;
   }
   
-  .cart_item button:focus,
-  .cart_item button:focus-visible {
-    outline: none;
-    box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.2);
+  .remove-button {
+    color: red;
   }
-  
