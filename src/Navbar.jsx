@@ -7,7 +7,7 @@ function Navbar({ cart }) {
   return (
     <nav className="navbar">
       <Link to="/" className="nav_button">
-        SHOW ME ALL THE ITEMS
+        Home
       </Link>
       <Link to="/login" className="nav_button">
         Login
