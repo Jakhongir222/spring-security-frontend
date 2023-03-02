@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 import "./Login.css"
-
+import AdminDashboard from '../admin/AdminDashboard';
+import UserDashboard from '../admin/UserDashboard';
 
 function LoginForm() {
   const [email, setEmail] = useState('');
@@ -18,8 +19,8 @@ function LoginForm() {
 
     try {
       const response = await axios.post('http://localhost:8080/api/v1/auth/authenticate', user);
-      const { email, firstname, lastname } = response.data;
-      setLoggedInUser({ email, firstname, lastname });
+      const { email, firstname, lastname, role } = response.data;
+      setLoggedInUser({ email, firstname, lastname, role });
     } catch (error) {
       console.error(error);
     }
@@ -28,7 +29,14 @@ function LoginForm() {
   return (
     <div className="login-form-container">
       {loggedInUser ? (
-        <p className="login-success">Logged in as {loggedInUser ? `${loggedInUser.firstname} ${loggedInUser.lastname}` : ''}</p>
+        <>
+          <p className="login-success">Logged in as {`${loggedInUser.firstname} ${loggedInUser.lastname}`}</p>
+          {loggedInUser.role === "admin" ? (
+            <AdminDashboard />
+          ) : (
+            <UserDashboard />
+          )}
+        </>
       ) : (
         <form onSubmit={handleSubmit} className="login-form">
           <label htmlFor="email_input">Email</label>
@@ -57,5 +65,6 @@ function LoginForm() {
     </div>
   );  
 }
+
 
 export default LoginForm;

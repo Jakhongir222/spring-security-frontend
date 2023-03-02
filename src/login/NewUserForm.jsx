@@ -8,6 +8,7 @@ function NewUserForm() {
   const [userType, setUserType] = useState('user');
   const [firstname, setFirstname] = useState('');
   const [lastname, setLastname] = useState('');
+  const [isAdmin, setIsAdmin] = useState(false);
 
   const handleSubmit = (event) => {
     event.preventDefault();
@@ -18,7 +19,8 @@ function NewUserForm() {
       confirmedPassword: confirmedPassword,
       userType: userType,
       firstname: firstname,
-      lastname: lastname
+      lastname: lastname,
+      isAdmin: isAdmin
     };
 
     fetch('http://localhost:8080/api/v1/auth/register', {
@@ -38,6 +40,7 @@ function NewUserForm() {
       setConfirmedPassword('');
       setFirstname('');
       setLastname('');
+      setIsAdmin(false);
     })
     .catch(error => console.error(error));
   };
